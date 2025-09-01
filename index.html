@@ -16,236 +16,279 @@
     body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:radial-gradient(1200px 600px at 80% -10%, #1b2652 0%, rgba(27,38,82,0) 70%), var(--bg);color:var(--text);}
 
     .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+    .title{font-weight:700;font-size:28px;letter-spacing:.2px;display:flex;align-items:center;gap:10px;text-align:center}
+    .pill{font-size:10px;background:rgba(125,211,252,.15);border:1px solid rgba(125,211,252,.35);padding:6px 10px;border-radius:999px;color:var(--accent)}
+
+    .total-counter{
+      background:linear-gradient(135deg, rgba(125,211,252,.15), rgba(52,211,153,.15));
+      border:2px solid rgba(125,211,252,.4);
+      backdrop-filter:blur(8px);
+      border-radius:12px;
+      padding:8px 16px;
+      text-align:center;
+      margin-bottom:16px;
+      box-shadow:0 4px 12px rgba(0,0,0,.2);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+    }
+    .total-counter h3{
+      margin:0;
+      font-size:18px;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .total-counter .total-value{
+      font-size:24px;
+      font-weight:700;
+      color:var(--accent);
+      text-shadow:0 0 15px rgba(125,211,252,.4);
+    }
+
+    .grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px);border-radius:18px;padding:16px 14px;box-shadow:0 10px 30px rgba(0,0,0,.25);position:relative;flex:1;min-width:180px}
+    .card h2{margin:4px 0 10px 0;font-size:20px;font-weight:700;color:#e2e8f0}
+    .list{display:flex;flex-direction:column}
+    .row{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;border-radius:12px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);margin-bottom:8px;position:relative;overflow:hidden}
     
-    /* Центрирование заголовка */
-    header {
-      text-align: center; /* Выравнивание текста по центру */
-      margin-bottom: 18px;
+    .row.team-leader {
+      background: linear-gradient(135deg, rgba(255,215,0,.22), rgba(255,215,0,.08));
+      border: 2px solid rgba(255,215,0,.5);
+      box-shadow: 0 0 25px rgba(255,215,0,.4), 0 4px 18px rgba(0,0,0,.3);
+      animation: leaderGlow 3s ease-in-out infinite;
+      transform: translateZ(0);
     }
-
-    .title {
-      font-weight: 700;
-      font-size: 36px; /* Размер шрифта */
-      letter-spacing: .2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .pill {
-      font-size: 10px;
-      background: rgba(125, 211, 252, .15);
-      border: 1px solid rgba(125, 211, 252, .35);
-      padding: 6px 10px;
-      border-radius: 999px;
-      color: var(--accent);
-    }
-
-    .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .00));
-      border: 1px solid rgba(255, 255, 255, .08);
-      backdrop-filter: blur(6px);
-      border-radius: 18px;
-      padding: 16px 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
-      position: relative;
-      flex: 1;
-      min-width: 180px;
-    }
-
-    .card h2 {
-      margin: 4px 0 10px 0;
-      font-size: 20px;
-      font-weight: 700;
-      color: #e2e8f0;
-    }
-
-    .list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 6px;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, .06);
-      background: rgba(255, 255, 255, .02);
-      margin-bottom: 8px;
-    }
-
-    .row .name {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      font-size: 12px;
-    }
-
-    .badge {
-      font-size: 12px;
-      color: #e8ecf8;
-      background: #0f172a;
-      border: 1px solid rgba(255, 255, 255, .08);
-      padding: 6px 8px;
-      border-radius: 999px;
-    }
-
-    .badge.first {
-      color: gold;
-    }
-
-    .row:first-child {
-      background-color: gold;
-      color: black;
-    }
-
-    .row:nth-child(2) {
-      background-color: silver;
-      color: black;
-    }
-
-    .row:nth-child(3) {
-      background-color: #cd7f32;
-      color: black;
-    }
-
-    .ftd {
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .ftd.up {
-      color: var(--good);
-    }
-
-    .total-ftd {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--accent);
+    
+    .row.team-leader::before {
+      content: '';
       position: absolute;
-      right: 10px;
-      top: 10px;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,.3), transparent);
+      animation: leaderShimmer 2.5s infinite;
     }
-
-    .footer {
-      opacity: .75;
-      font-size: 12px;
-      margin-top: 10px;
+    
+    .row.team-leader .name {
+      font-weight: 800;
+      font-size: 14px;
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(251,191,36,.8), 0 2px 4px rgba(0,0,0,.5);
+      letter-spacing: 0.5px;
     }
-
-    .hint {
-      font-size: 12px;
-      color: var(--muted);
+    
+    .row.team-leader .name::before {
+      content: '👑 ';
+      font-size: 18px;
+      animation: crownBounce 2s ease-in-out infinite;
+      filter: drop-shadow(0 0 8px rgba(255,215,0,.6));
     }
-
-    /* ===== Оверлей с эффектами ===== */
-    #overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, .85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 72px;
+    
+    .row.team-leader .ftd {
       font-weight: 900;
-      color: var(--accent);
-      z-index: 9999;
-      text-align: center;
-      text-transform: uppercase;
-      opacity: 0;
-      pointer-events: none;
+      font-size: 17px;
+      color: #ffffff;
+      text-shadow: 0 0 18px rgba(251,191,36,.8), 0 2px 4px rgba(0,0,0,.5);
+      animation: numberPulse 2.5s ease-in-out infinite;
     }
 
-    #overlay.show {
-      animation: zoomGlow 2s ease forwards;
+    .row.second-place {
+      background: linear-gradient(135deg, rgba(192,192,192,.18), rgba(192,192,192,.05));
+      border: 2px solid rgba(192,192,192,.45);
+      box-shadow: 0 0 20px rgba(192,192,192,.35), 0 4px 16px rgba(0,0,0,.25);
+      animation: silverGlow 3.2s ease-in-out infinite;
+      transform: translateZ(0);
+    }
+    
+    .row.second-place::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(192,192,192,.25), transparent);
+      animation: silverShimmer 2.8s infinite;
+    }
+    
+    .row.second-place .name {
+      font-weight: 750;
+      font-size: 13px;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(192,192,192,.7), 0 2px 3px rgba(0,0,0,.4);
+      letter-spacing: 0.3px;
+    }
+    
+    .row.second-place .name::before {
+      content: '🥈 ';
+      font-size: 16px;
+      animation: medalFloat 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 6px rgba(192,192,192,.5));
+    }
+    
+    .row.second-place .ftd {
+      font-weight: 800;
+      font-size: 16px;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(192,192,192,.7), 0 2px 3px rgba(0,0,0,.4);
+      animation: silverPulse 2.8s ease-in-out infinite;
     }
 
-    @keyframes zoomGlow {
-      0% {
-        transform: scale(0.2);
-        opacity: 0;
-        text-shadow: 0 0 0px var(--accent);
+    .row.third-place {
+      background: linear-gradient(135deg, rgba(205,127,50,.16), rgba(205,127,50,.04));
+      border: 2px solid rgba(205,127,50,.4);
+      box-shadow: 0 0 18px rgba(205,127,50,.3), 0 4px 14px rgba(0,0,0,.2);
+      animation: bronzeGlow 3.5s ease-in-out infinite;
+      transform: translateZ(0);
+    }
+    
+    .row.third-place::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(205,127,50,.2), transparent);
+      animation: bronzeShimmer 3s infinite;
+    }
+    
+    .row.third-place .name {
+      font-weight: 700;
+      font-size: 13px;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(217,119,6,.6), 0 2px 2px rgba(0,0,0,.4);
+      letter-spacing: 0.2px;
+    }
+    
+    .row.third-place .name::before {
+      content: '🥉 ';
+      font-size: 15px;
+      animation: bronzeWobble 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 5px rgba(205,127,50,.4));
+    }
+    
+    .row.third-place .ftd {
+      font-weight: 750;
+      font-size: 15px;
+      color: #ffffff;
+      text-shadow: 0 0 12px rgba(217,119,6,.6), 0 2px 2px rgba(0,0,0,.4);
+      animation: bronzePulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes leaderGlow {
+      0%, 100% { 
+        box-shadow: 0 0 20px rgba(255,215,0,.3), 0 4px 16px rgba(0,0,0,.2);
       }
-      40% {
-        transform: scale(1.3);
-        opacity: 1;
-        text-shadow: 0 0 20px var(--accent), 0 0 40px #0ff;
-      }
-      70% {
-        transform: scale(1);
-        opacity: 1;
-        text-shadow: 0 0 25px #fff, 0 0 50px var(--accent);
-      }
-      100% {
-        transform: scale(1);
-        opacity: 0;
-        text-shadow: 0 0 0px transparent;
+      50% { 
+        box-shadow: 0 0 30px rgba(255,215,0,.6), 0 8px 25px rgba(0,0,0,.4);
+        transform: translateY(-2px);
       }
     }
-
-    #overlay span {
-      background: linear-gradient(270deg, #7dd3fc, #34d399, #f59e0b, #ef4444, #7dd3fc);
-      background-size: 1000% 1000%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientMove 3s linear infinite;
+    
+    @keyframes leaderShimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    @keyframes crownBounce {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(5deg); }
+    }
+    
+    @keyframes numberPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
     }
 
-    @keyframes gradientMove {
-      0% {
-        background-position: 0% 50%;
+    @keyframes silverGlow {
+      0%, 100% { 
+        box-shadow: 0 0 18px rgba(192,192,192,.3), 0 4px 14px rgba(0,0,0,.2);
       }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
+      50% { 
+        box-shadow: 0 0 25px rgba(192,192,192,.5), 0 6px 20px rgba(0,0,0,.3);
+        transform: translateY(-1px);
       }
     }
-
-    /* Canvas */
-    #confetti-canvas,
-    #money-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
+    
+    @keyframes silverShimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    @keyframes medalFloat {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-2px) scale(1.05); }
+    }
+    
+    @keyframes silverPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
     }
 
-    #money-canvas {
-      z-index: 5000;
+    @keyframes bronzeGlow {
+      0%, 100% { 
+        box-shadow: 0 0 16px rgba(205,127,50,.25), 0 4px 12px rgba(0,0,0,.2);
+      }
+      50% { 
+        box-shadow: 0 0 22px rgba(205,127,50,.45), 0 6px 18px rgba(0,0,0,.3);
+        transform: translateY(-1px);
+      }
+    }
+    
+    @keyframes bronzeShimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    @keyframes bronzeWobble {
+      0%, 100% { transform: translateX(0px) rotate(0deg); }
+      25% { transform: translateX(-1px) rotate(-2deg); }
+      75% { transform: translateX(1px) rotate(2deg); }
+    }
+    
+    @keyframes bronzePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
     }
 
-    /* Стиль кнопки внизу */
-    .sound-button-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+    .row .name{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#cbd5e1;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+    .badge{font-size:12px;color:#e8ecf8;background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:6px 8px;border-radius:999px}
+    .badge.first{background:gold;color:black;box-shadow:0 0 10px rgba(255,215,0,.6)}
+    .badge.second{background:silver;color:black;box-shadow:0 0 10px rgba(192,192,192,.6)}
+    .badge.third{background:#cd7f32;color:black;box-shadow:0 0 10px rgba(205,127,50,.6)}
+    .row:first-child{background-color:gold;color:black}
+    .row:nth-child(2){background-color:silver;color:black}
+    .row:nth-child(3){background-color:#cd7f32;color:black}
+    .ftd{font-weight:700;font-size:14px}
+    .ftd.up{color:var(--good)}
+    .total-ftd{font-size:12px;font-weight:700;color:var(--accent);position:absolute;right:10px;top:10px}
+    .footer{opacity:.75;font-size:12px;margin-top:10px}
+    
+    .bottom-toolbar{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      justify-content:center;
+      margin-top:24px;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.1);
     }
+    button{cursor:pointer;background:#1e293b;color:#e2e8f0;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:8px 10px;font-weight:600}
+    button:hover{background:#243046}
+    .hint{font-size:12px;color:var(--muted)}
 
-    button {
-      cursor: pointer;
-      background: #1e293b;
-      color: #e2e8f0;
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 10px;
-      padding: 8px 10px;
-      font-weight: 600;
-    }
+    #overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:900;color:var(--accent);z-index:9999;text-align:center;text-transform:uppercase;opacity:0;pointer-events:none}
+    #overlay.show{animation:zoomGlow 2s ease forwards}
+    @keyframes zoomGlow{0%{transform:scale(.2);opacity:0;text-shadow:0 0 0px var(--accent)}40%{transform:scale(1.3);opacity:1;text-shadow:0 0 20px var(--accent),0 0 40px #0ff}70%{transform:scale(1);opacity:1;text-shadow:0 0 25px #fff,0 0 50px var(--accent)}100%{transform:scale(1);opacity:0;text-shadow:0 0 0px transparent}}
+    #overlay span{background:linear-gradient(270deg,#7dd3fc,#34d399,#f59e0b,#ef4444,#7dd3fc);background-size:1000% 1000%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientMove 3s linear infinite}
+    @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-    button:hover {
-      background: #243046;
-    }
+    #confetti-canvas,#money-canvas{position:fixed;inset:0;pointer-events:none}
+    #money-canvas{z-index:5000}
   </style>
 </head>
 <body>
@@ -256,36 +299,32 @@
       <div class="title"><span>🏆</span> Sales Leaderboard <span>🏆</span></div>
     </header>
 
-    <!-- Добавим блок с общим FTD -->
-    <div id="total-ftd" style="margin-bottom: 20px; text-align: center; padding: 10px; background-color: #2d3748; border-radius: 10px; color: #e8ecf8; font-size: 24px;">
-      <strong>Total FTD: </strong><span id="total-ftd-value">0</span>
+    <div class="total-counter">
+      <h3>Total</h3>
+      <div class="total-value" id="grand-total">0</div>
     </div>
 
     <div id="grid" class="grid"></div>
-
-    <!-- Кнопка включения звука, расположенная внизу -->
-    <div class="sound-button-container">
+    
+    <div class="bottom-toolbar">
       <button id="btn-audio">🔔 Включить звук</button>
     </div>
   </div>
 
   <div id="overlay"><span></span></div>
 
-  <!-- Один раз подключаем confetti -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
 
 <script>
 (() => {
-  // ======= CONFIG =======
   const CONFIG = {
     SHEET_ID: "1Hr1c13TMcBjFlW-V3xOBxiJ8Mi_nWVz0J_K5e10pAaA",
     API_KEY:  "AIzaSyCFS9Tse6vuK2O3PK4PyS0DDgRIzbC1F2E",
     RANGE:    "Isaev!A:C",
     POLL_MS:  5000,
-    MAX_CONCURRENT_EFFECTS: 1, // предотвращает спам эффектов
+    MAX_CONCURRENT_EFFECTS: 1,
   };
 
-  // ======= STATE =======
   const state = {
     soundEnabled: false,
     soundPool: [],
@@ -294,11 +333,9 @@
     currentFetch: null,
     backoffMs: CONFIG.POLL_MS,
     hidden: document.hidden,
-    money: { image: null, animating: false, raf: 0, bills: [] },
-    totalFtd: 0 // Хранение общего FTD
+    money: { image: null, animating: false, raf: 0, bills: [] }
   };
 
-  // ======= HELPERS =======
   function normalizeKey(team, stage){
     return `${String(team||'').trim().toLowerCase()}|${String(stage||'').trim().toLowerCase()}`;
   }
@@ -314,7 +351,6 @@
     return teams;
   }
 
-  // ======= AUDIO (пул + надёжная разблокировка) =======
   const SOUND_SRC = 'https://raw.githubusercontent.com/exellentyes-hue/sales-leaderboard2/refs/heads/main/videoplayback.mp3';
   const SOUND_POOL_SIZE = 4;
   function initSoundPool(){
@@ -333,19 +369,19 @@
     a.currentTime = 0; a.play().catch(err => console.warn('[FTD] play error:', err));
   }
 
-  // ======= UI: toolbar =======
-  function injectToolbar(){
-    const header = document.querySelector('header'); if (!header) return;
-    const bar = document.createElement('div'); bar.className = 'toolbar'; bar.style.marginLeft = '12px';
-    const btn = document.createElement('button'); btn.id = 'btn-audio'; btn.textContent = '🔔 Включить звук'; btn.title = 'Разрешите звук одним кликом'; btn.addEventListener('click', unlockAudioOnce);
-    bar.appendChild(btn); header.appendChild(bar);
+  function initToolbar(){
+    const btn = document.getElementById('btn-audio');
+    if (btn) {
+      btn.title = 'Разрешите звук одним кликом';
+      btn.addEventListener('click', unlockAudioOnce);
+    }
     document.addEventListener('pointerdown', function once(){ if(!state.soundEnabled) unlockAudioOnce(); document.removeEventListener('pointerdown', once); }, { once:true });
   }
   function updateToolbar(){
-    const btn = document.getElementById('btn-audio'); if (btn) btn.textContent = state.soundEnabled ? '🔊 Звук активен' : '🔔 Включить звук';
+    const btn = document.getElementById('btn-audio'); 
+    if (btn) btn.textContent = state.soundEnabled ? '🔊 Звук активен' : '🔔 Включить звук';
   }
 
-  // ======= EFFECTS =======
   function makeConfettiBurst(){
     const duration = 900; const end = Date.now() + duration;
     (function frame(){
@@ -355,7 +391,6 @@
     })();
   }
 
-  // Денежный дождь — один инстанс, повторные вызовы аккуратно рестартят
   function ensureMoneyImage(){
     return new Promise(resolve => {
       if (state.money.image){ resolve(state.money.image); return; }
@@ -367,7 +402,7 @@
   }
 
   function makeMoneyRain(){
-    if (state.money.animating) return; // не спамим
+    if (state.money.animating) return;
     state.money.animating = true;
     ensureMoneyImage().then(img => {
       const canvas = document.getElementById('money-canvas'); const ctx = canvas.getContext('2d');
@@ -384,11 +419,11 @@
           ctx.save(); ctx.translate(x,y); ctx.rotate(b.r*Math.PI/180); if (img) ctx.drawImage(img, -b.s/2, -b.s/4, b.s, b.s/2); ctx.restore(); b.r += b.rs;
         }
         if (alive) state.money.raf = requestAnimationFrame(draw); else {
-          state.money.animating = false;  // Очищаем массив и убираем элементы с канваса
+          state.money.animating = false;
           state.money.bills = [];
           const canvas = document.getElementById("money-canvas");
           const ctx = canvas.getContext("2d");
-          ctx.clearRect(0, 0, canvas.width, canvas.height); // очистка канваса
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
       }
       draw();
@@ -399,54 +434,81 @@
     const overlay = document.getElementById('overlay'); const span = overlay.querySelector('span');
     span.textContent = `${name}: ${ftd} 🚀`;
     overlay.classList.remove('show'); void overlay.offsetWidth; overlay.classList.add('show');
-    // класс сам уберётся по animation end
   }
 
-  // ======= RENDER =======
   function render(rows){
     const grid = document.getElementById('grid');
-    grid.replaceChildren(); // быстрее, чем innerHTML=''
+    grid.replaceChildren();
     const teams = groupByTeam(rows);
     const teamNames = Object.keys(teams).sort();
 
-    let totalFtd = 0; // Суммируем общий FTD
+    let grandTotal = 0;
 
     for (const team of teamNames){
       const card = document.createElement('div'); card.className = 'card';
       const h2 = document.createElement('h2'); h2.textContent = team; card.appendChild(h2);
 
       const total = teams[team].reduce((s,r)=>s + (r.ftd||0), 0);
-      totalFtd += total; // Добавляем к общему FTD
-
+      grandTotal += total;
+      
       const badge = document.createElement('div'); badge.className = 'total-ftd'; badge.textContent = `FTD: ${total}`; card.appendChild(badge);
 
       const list = document.createElement('div'); list.className = 'list';
       let rank = 1;
-      teams[team].sort((a,b)=>(b.ftd||0)-(a.ftd||0)).forEach((row, idx) => {
-        const li = document.createElement('div'); li.className = 'row';
+      
+      const sortedTeamMembers = teams[team].sort((a,b)=>(b.ftd||0)-(a.ftd||0));
+      
+      sortedTeamMembers.forEach((row, idx) => {
+        const li = document.createElement('div'); 
+        li.className = 'row';
+        
+        if (idx === 0) {
+          li.classList.add('team-leader');
+        } else if (idx === 1) {
+          li.classList.add('second-place');
+        } else if (idx === 2) {
+          li.classList.add('third-place');
+        }
+        
         const left = document.createElement('div'); left.className = 'name';
-        const pos = document.createElement('span'); pos.className = 'badge'; if (idx===0) pos.classList.add('first'); pos.textContent = rank++;
+        
+        if (idx >= 3) {
+          const pos = document.createElement('span'); 
+          pos.className = 'badge'; 
+          pos.textContent = rank;
+          left.appendChild(pos);
+        }
+        rank++;
+        
         const nm = document.createElement('span'); nm.textContent = row.stage;
-        left.appendChild(pos); left.appendChild(nm);
+        left.appendChild(nm);
         const right = document.createElement('div'); right.className = 'ftd' + (row._up ? ' up' : ''); right.textContent = row.ftd;
         li.appendChild(left); li.appendChild(right); list.appendChild(li);
       });
       card.appendChild(list); grid.appendChild(card);
     }
 
-    // Обновляем общий FTD
-    document.getElementById('total-ftd-value').textContent = totalFtd;
+    const grandTotalElement = document.getElementById('grand-total');
+    if (grandTotalElement) {
+      grandTotalElement.textContent = grandTotal;
+    }
   }
 
-  // ======= DATA TRANSFORM =======
   function toObjects(values){
+    console.log('[DEBUG] Raw values from sheets:', values);
     const [header, ...rows] = values;
+    console.log('[DEBUG] Header:', header);
+    console.log('[DEBUG] Rows count:', rows.length);
+    
     const idx = {
       team: header.findIndex(h => /team/i.test(h)),
       stage: header.findIndex(h => /stage/i.test(h)),
       ftd: header.findIndex(h => /ftd/i.test(h))
     };
+    console.log('[DEBUG] Column indices:', idx);
+    
     const out = rows.map(r => ({ team: r[idx.team] || '—', stage: r[idx.stage] || '—', ftd: toNum(r[idx.ftd]) }));
+    console.log('[DEBUG] Processed rows:', out);
 
     let effectsLaunched = 0;
     for (const o of out){
@@ -461,7 +523,6 @@
     return out;
   }
 
-  // ======= FETCH with Abort + эксп. бэкофф + пауза в фоне =======
   function sheetsUrl(){
     return `https://sheets.googleapis.com/v4/spreadsheets/${CONFIG.SHEET_ID}/values/${encodeURIComponent(CONFIG.RANGE)}?key=${CONFIG.API_KEY}`;
   }
@@ -473,20 +534,21 @@
   }
 
   async function load(){
-    // Отменяем предыдущий запрос, если ещё идёт
     if (state.currentFetch) state.currentFetch.abort();
     const ctl = new AbortController(); state.currentFetch = ctl;
     try{
+      console.log('[DEBUG] Fetching from sheets...');
       const values = await fetchFromSheets(ctl.signal);
+      console.log('[DEBUG] Fetch successful, processing data...');
       const rows = toObjects(values);
+      console.log('[DEBUG] About to render rows:', rows);
       render(rows);
-      // успех — сбрасываем бэкофф
       state.backoffMs = CONFIG.POLL_MS;
     } catch (e){
       console.warn('[FTD] Sheets error, using sample:', e);
+      console.log('[DEBUG] Using sample data instead');
       const sample = [ ['Team','Stage','FTD'], ['Team Alpha','Иван',5], ['Team Alpha','Анна',7], ['Team Beta','Пётр',4], ['Team Beta','Ольга',8] ];
       const rows = toObjects(sample); render(rows);
-      // увеличиваем интервал опроса при ошибках (до 60с)
       state.backoffMs = Math.min(Math.floor(state.backoffMs * 1.6), 60000);
     } finally {
       state.currentFetch = null;
@@ -496,13 +558,11 @@
 
   function scheduleNextPoll(){
     if (state.pollingTimer) clearTimeout(state.pollingTimer);
-    if (document.hidden) return; // не опрашиваем, если вкладка фоном
+    if (document.hidden) return;
     state.pollingTimer = setTimeout(load, state.backoffMs);
   }
 
-  // ======= LIFECYCLE =======
   function onResize(){
-    // поддержим канвасы реального размера
     const cc = document.getElementById('confetti-canvas'); cc.width = innerWidth; cc.height = innerHeight;
     const mc = document.getElementById('money-canvas'); mc.width = innerWidth; mc.height = innerHeight;
   }
@@ -512,14 +572,12 @@
     else { state.hidden = false; scheduleNextPoll(); }
   }
 
-  // ======= INIT =======
   function init(){
-    initSoundPool(); onResize(); window.addEventListener('resize', onResize);
+    initSoundPool(); initToolbar(); onResize(); window.addEventListener('resize', onResize);
     document.addEventListener('visibilitychange', onVisibility);
     load();
   }
 
-  // старт
   init();
 })();
 </script>
