@@ -16,40 +16,236 @@
     body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:radial-gradient(1200px 600px at 80% -10%, #1b2652 0%, rgba(27,38,82,0) 70%), var(--bg);color:var(--text);}
 
     .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:18px}
-    .title{font-weight:700;font-size:28px;letter-spacing:.2px;display:flex;align-items:center;gap:10px} /* Уменьшили шрифт заголовка */
-    .pill{font-size:10px;background:rgba(125,211,252,.15);border:1px solid rgba(125,211,252,.35);padding:6px 10px;border-radius:999px;color:var(--accent)}
+    
+    /* Центрирование заголовка */
+    header {
+      text-align: center; /* Выравнивание текста по центру */
+      margin-bottom: 18px;
+    }
 
-    .grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px);border-radius:18px;padding:16px 14px;box-shadow:0 10px 30px rgba(0,0,0,.25);position:relative;flex:1;min-width:180px} /* Уменьшили ширину карточек */
-    .card h2{margin:4px 0 10px 0;font-size:20px;font-weight:700;color:#e2e8f0} /* Уменьшили размер шрифта заголовка */
-    .list{display:flex;flex-direction:column}
-    .row{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;border-radius:12px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02);margin-bottom:8px} /* Уменьшили отступы */
-    .row .name{display:flex;align-items:center;gap:6px;font-weight:600;font-size:12px} /* Уменьшили шрифт */
-    .badge{font-size:12px;color:#e8ecf8;background:#0f172a;border:1px solid rgba(255,255,255,.08);padding:6px 8px;border-radius:999px} /* Уменьшили размер шрифта для бейджа */
-    .badge.first{color:gold}
-    .row:first-child{background-color:gold;color:black}
-    .row:nth-child(2){background-color:silver;color:black}
-    .row:nth-child(3){background-color:#cd7f32;color:black}
-    .ftd{font-weight:700;font-size:14px} /* Уменьшили шрифт */
-    .ftd.up{color:var(--good)}
-    .total-ftd{font-size:16px;font-weight:700;color:var(--accent);position:absolute;right:10px;top:10px}
-    .footer{opacity:.75;font-size:12px;margin-top:10px}
-    .toolbar{display:flex;gap:8px;align-items:center}
-    button{cursor:pointer;background:#1e293b;color:#e2e8f0;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:8px 10px;font-weight:600}
-    button:hover{background:#243046}
-    .hint{font-size:12px;color:var(--muted)}
+    .title {
+      font-weight: 700;
+      font-size: 36px; /* Размер шрифта */
+      letter-spacing: .2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .pill {
+      font-size: 10px;
+      background: rgba(125, 211, 252, .15);
+      border: 1px solid rgba(125, 211, 252, .35);
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .02), rgba(255, 255, 255, .00));
+      border: 1px solid rgba(255, 255, 255, .08);
+      backdrop-filter: blur(6px);
+      border-radius: 18px;
+      padding: 16px 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+      position: relative;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .card h2 {
+      margin: 4px 0 10px 0;
+      font-size: 20px;
+      font-weight: 700;
+      color: #e2e8f0;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 6px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, .06);
+      background: rgba(255, 255, 255, .02);
+      margin-bottom: 8px;
+    }
+
+    .row .name {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .badge {
+      font-size: 12px;
+      color: #e8ecf8;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, .08);
+      padding: 6px 8px;
+      border-radius: 999px;
+    }
+
+    .badge.first {
+      color: gold;
+    }
+
+    .row:first-child {
+      background-color: gold;
+      color: black;
+    }
+
+    .row:nth-child(2) {
+      background-color: silver;
+      color: black;
+    }
+
+    .row:nth-child(3) {
+      background-color: #cd7f32;
+      color: black;
+    }
+
+    .ftd {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .ftd.up {
+      color: var(--good);
+    }
+
+    .total-ftd {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    .footer {
+      opacity: .75;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
 
     /* ===== Оверлей с эффектами ===== */
-    #overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;font-size:72px;font-weight:900;color:var(--accent);z-index:9999;text-align:center;text-transform:uppercase;opacity:0;pointer-events:none}
-    #overlay.show{animation:zoomGlow 2s ease forwards}
-    @keyframes zoomGlow{0%{transform:scale(.2);opacity:0;text-shadow:0 0 0px var(--accent)}40%{transform:scale(1.3);opacity:1;text-shadow:0 0 20px var(--accent),0 0 40px #0ff}70%{transform:scale(1);opacity:1;text-shadow:0 0 25px #fff,0 0 50px var(--accent)}100%{transform:scale(1);opacity:0;text-shadow:0 0 0px transparent}}
-    #overlay span{background:linear-gradient(270deg,#7dd3fc,#34d399,#f59e0b,#ef4444,#7dd3fc);background-size:1000% 1000%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientMove 3s linear infinite}
-    @keyframes gradientMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--accent);
+      z-index: 9999;
+      text-align: center;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #overlay.show {
+      animation: zoomGlow 2s ease forwards;
+    }
+
+    @keyframes zoomGlow {
+      0% {
+        transform: scale(0.2);
+        opacity: 0;
+        text-shadow: 0 0 0px var(--accent);
+      }
+      40% {
+        transform: scale(1.3);
+        opacity: 1;
+        text-shadow: 0 0 20px var(--accent), 0 0 40px #0ff;
+      }
+      70% {
+        transform: scale(1);
+        opacity: 1;
+        text-shadow: 0 0 25px #fff, 0 0 50px var(--accent);
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+        text-shadow: 0 0 0px transparent;
+      }
+    }
+
+    #overlay span {
+      background: linear-gradient(270deg, #7dd3fc, #34d399, #f59e0b, #ef4444, #7dd3fc);
+      background-size: 1000% 1000%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 3s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
 
     /* Canvas */
-    #confetti-canvas,#money-canvas{position:fixed;inset:0;pointer-events:none}
-    #money-canvas{z-index:5000}
+    #confetti-canvas,
+    #money-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    #money-canvas {
+      z-index: 5000;
+    }
+
+    /* Стиль кнопки внизу */
+    .sound-button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      cursor: pointer;
+      background: #1e293b;
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #243046;
+    }
   </style>
 </head>
 <body>
@@ -66,6 +262,11 @@
     </div>
 
     <div id="grid" class="grid"></div>
+
+    <!-- Кнопка включения звука, расположенная внизу -->
+    <div class="sound-button-container">
+      <button id="btn-audio">🔔 Включить звук</button>
+    </div>
   </div>
 
   <div id="overlay"><span></span></div>
@@ -313,7 +514,7 @@
 
   // ======= INIT =======
   function init(){
-    initSoundPool(); injectToolbar(); onResize(); window.addEventListener('resize', onResize);
+    initSoundPool(); onResize(); window.addEventListener('resize', onResize);
     document.addEventListener('visibilitychange', onVisibility);
     load();
   }
